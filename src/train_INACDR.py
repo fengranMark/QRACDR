@@ -31,7 +31,7 @@ from models import ANCE
 from tensorboardX import SummaryWriter
 
 from utils import check_dir_exist_or_build, pstore, pload, set_seed, get_optimizer, print_res
-from data import ConvdrFuse_qrecc, ConvdrFuse_topiocqa
+from data import INACDR_qrecc, INACDR_topiocqa
 
 def save_model(args, model, query_tokenizer, save_model_order, epoch, step, loss):
     output_dir = oj(args.model_output_path, '-best-model'.format("INACDR"))
@@ -98,9 +98,9 @@ def train(args):
     
     # data prepare
     if args.dataset == "topiocqa":
-        train_dataset = ConvdrFuse_topiocqa(args, tokenizer, args.train_file_path, args.rewrite_file_path)
+        train_dataset = INACDR_topiocqa(args, tokenizer, args.train_file_path, args.rewrite_file_path)
     elif args.dataset == "qrecc":
-        train_dataset = ConvdrFuse_qrecc(args, tokenizer, args.train_file_path, args.rewrite_file_path)
+        train_dataset = INACDR_qrecc(args, tokenizer, args.train_file_path, args.rewrite_file_path)
     train_loader = DataLoader(train_dataset, 
                                 #sampler=train_sampler,
                                 batch_size = args.batch_size, 
