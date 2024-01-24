@@ -27,14 +27,14 @@ import torch.nn.functional as F
 from torch.utils.data import DataLoader, RandomSampler
 from transformers import get_linear_schedule_with_warmup
 from transformers import RobertaConfig, RobertaTokenizer
-from models import ANCE, ANCE_fuse
-#from tensorboardX import SummaryWriter
+from models import ANCE
+from tensorboardX import SummaryWriter
 
 from utils import check_dir_exist_or_build, pstore, pload, set_seed, get_optimizer, print_res
 from data import ConvdrFuse_qrecc, ConvdrFuse_topiocqa
 
 def save_model(args, model, query_tokenizer, save_model_order, epoch, step, loss):
-    output_dir = oj(args.model_output_path, '{}-fusetwoCL-best-model'.format("Convdr"))
+    output_dir = oj(args.model_output_path, '-best-model'.format("INACDR"))
     check_dir_exist_or_build([output_dir])
     model_to_save = model.module if hasattr(model, 'module') else model
     #model_to_save.t5.save_pretrained(output_dir)
