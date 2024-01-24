@@ -10,7 +10,7 @@ import csv
 import argparse
 from models import ANCE
 from utils import check_dir_exist_or_build, pstore, pload, set_seed, get_optimizer
-from data import padding_seq_to_same_length, Retrieval_topiocqa, Retrieval_topiocqa_fuse, Test_topiocqa
+from data import padding_seq_to_same_length, INACDR_topiocqa, INACDR_qrecc
 import os
 from os import path
 from os.path import join as oj
@@ -172,7 +172,10 @@ def get_test_query_embedding(args):
     # test dataset/dataloader
     args.batch_size = args.per_gpu_test_batch_size * max(1, args.n_gpu)
     logger.info("Buidling test dataset...")
-    test_dataset = Test_topiocqa(args, tokenizer, args.test_file_path)
+    if args.dataset == "topiocqa":
+        test_dataset = INACDR_topiocqa(args, tokenizer, args.test_file_path, args.rewrite_file_path)
+    elif args.dataset == "qrecc":
+        test_dataset = INACDR_qrecc(args, tokenizer, args.test_file_path)
     test_loader = DataLoader(test_dataset, 
                                 batch_size = args.batch_size, 
                                 shuffle=False, 
@@ -391,6 +394,9 @@ def get_args():
     parser.add_argument("--qrel_output_path", type=str, default="../output/topiocqa")
     parser.add_argument("--output_trec_file", type=str)
     parser.add_argument("--trec_gold_qrel_file_path", type=str, default="../datasets/topiocqa/topiocqa_qrel.trec")
+    parser.add_argument("--dataset", type=str, default="topiocqa")
+    parser.add_argument("--collate_fn_type", type=str, default="flat_concat_for_test")
+
 
     parser.add_argument("--test_type", type=str, default="convqa")
     parser.add_argument("--is_train", type=bool, default=False)
