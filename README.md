@@ -1,5 +1,5 @@
-# INACDR
-A code base for Information Needs Alignment with Rewritten Query for Conversational Dense Retrieval - Submission to SIGIR 2024
+# QRACDR
+A code base for Aligning Query Representation with Rewritten Query and Relevance Judgments in Conversational Search - Submission to SIGIR 2024
 
 # Environment Dependency
 
@@ -23,11 +23,11 @@ To evaluate the trained model by INACDR, we should first establish index. We use
     python gen_tokenized_doc.py --config=gen_tokenized_doc.toml
     python gen_doc_embeddings.py --config=gen_doc_embeddings.toml
 
-## 3. Train INACDR
+## 3. Train QRACDR
 
-To train INACDR, please run the following commands in the src folder. The pre-trained language model we use for dense retrieval is [ANCE](https://github.com/microsoft/ANCE).
+To train QRACDR, please run the following commands in the src folder. The pre-trained language model we use for dense retrieval is [ANCE](https://github.com/microsoft/ANCE).
 
-    python train_INACDR.py --pretrained_encoder_path="checkpoints/ad-hoc-ance-msmarco" \ 
+    python train_QRACDR.py --pretrained_encoder_path="checkpoints/ad-hoc-ance-msmarco" \ 
       --train_file_path=$train_file_path \ 
       --log_dir_path=$log_dir_path \
       --model_output_path=$model_output_path \ 
@@ -42,9 +42,9 @@ To train INACDR, please run the following commands in the src folder. The pre-tr
 
 ## 4. Retrieval evaluation
 
-Now, we can perform retrieval to evaluate the INACDR-trained conversational dense retriever by running:
+Now, we can perform retrieval to evaluate the QRACDR-trained conversational dense retriever by running:
 
-    python test_retrieval_topiocqa.py --pretrained_encoder_path=$trained_model_path \ 
+    python test_QRACDR.py --pretrained_encoder_path=$trained_model_path \ 
       --passage_embeddings_dir_path=$passage_embeddings_dir_path \ 
       --passage_offset2pid_path=$passage_offset2pid_path \
       --qrel_output_path=$qrel_output_path \ % output dir
