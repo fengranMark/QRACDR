@@ -18,7 +18,7 @@ Conversational search datasets can be downloaded from [QReCC](https://github.com
 
 ## 2. Retrieval Indexing
 
-To evaluate the trained model by INACDR, we should first establish index. We use the pre-trained ad-hoc search model ANCE to generate document embeddings. Two scripts for each dataset are provided in index folder by running:
+To evaluate the trained model by QRACDR, we should first establish index. We use the pre-trained ad-hoc search model ANCE to generate document embeddings. Two scripts for each dataset are provided in index folder by running:
 
     python gen_tokenized_doc.py --config=gen_tokenized_doc.toml
     python gen_doc_embeddings.py --config=gen_doc_embeddings.toml
