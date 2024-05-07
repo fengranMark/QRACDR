@@ -1,5 +1,5 @@
 # QRACDR
-A code base for Aligning Query Representation with Rewritten Query and Relevance Judgments in Conversational Search - Submission to SIGIR 2024
+A code base for Aligning Query Representation with Rewritten Query and Relevance Judgments in Conversational Search (under review paper).
 
 # Environment Dependency
 
