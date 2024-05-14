@@ -386,14 +386,14 @@ def main():
 def get_args():
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("--test_file_path", type=str, default="../datasets/topiocqa/test.json")
-    parser.add_argument("--passage_collection_path", type=str, default="../../ConvDR-main/datasets/topiocqa/full_wiki_segments.tsv")
-    parser.add_argument("--passage_embeddings_dir_path", type=str, default="../../ConvDR-main/datasets/topiocqa/embeds")
-    parser.add_argument("--passage_offset2pid_path", type=str, default="../../ConvDR-main/datasets/topiocqa/tokenized/offset2pid.pickle")
+    parser.add_argument("--test_file_path", type=str, default="datasets/topiocqa/test.json")
+    parser.add_argument("--passage_collection_path", type=str, default="datasets/topiocqa/full_wiki_segments.tsv")
+    parser.add_argument("--passage_embeddings_dir_path", type=str, default="datasets/topiocqa/embeds")
+    parser.add_argument("--passage_offset2pid_path", type=str, default="datasets/topiocqa/tokenized/offset2pid.pickle")
     parser.add_argument("--pretrained_encoder_path", type=str)
-    parser.add_argument("--qrel_output_path", type=str, default="../output/topiocqa")
+    parser.add_argument("--qrel_output_path", type=str, default="output/topiocqa")
     parser.add_argument("--output_trec_file", type=str)
-    parser.add_argument("--trec_gold_qrel_file_path", type=str, default="../datasets/topiocqa/topiocqa_qrel.trec")
+    parser.add_argument("--trec_gold_qrel_file_path", type=str, default="datasets/topiocqa/topiocqa_qrel.trec")
     parser.add_argument("--dataset", type=str, default="topiocqa")
     parser.add_argument("--collate_fn_type", type=str, default="flat_concat_for_test")
 
