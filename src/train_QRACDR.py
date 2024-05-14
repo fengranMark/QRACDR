@@ -219,10 +219,10 @@ def get_args():
     parser.add_argument("--pretrained_query_encoder_path", type=str, default="checkpoint/ad-hoc-ance-msmarco")
     parser.add_argument("--pretrained_oracle_encoder_path", type=str, default="checkpoint/ad-hoc-ance-msmarco")
 
-    parser.add_argument("--train_file_path", type=str, default="./datasets/topiocqa/train_with_info.json")
-    parser.add_argument("--rewrite_file_path", type=str, default="./datasets/topiocqa/QR/train_T5QR.json")
-    parser.add_argument('--model_output_path', type=str, default="../output/topiocqa/model")
-    parser.add_argument('--log_dir_path', type=str, default="../loss_log")
+    parser.add_argument("--train_file_path", type=str, default="datasets/topiocqa/train_with_info.json")
+    parser.add_argument("--rewrite_file_path", type=str, default="datasets/topiocqa/QR/train_T5QR.json")
+    parser.add_argument('--model_output_path', type=str, default="output/topiocqa/model")
+    parser.add_argument('--log_dir_path', type=str, default="loss_log")
     parser.add_argument("--collate_fn_type", type=str, default="flat_concat_for_train")
 
 
