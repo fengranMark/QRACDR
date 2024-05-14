@@ -337,7 +337,7 @@ if __name__ == "__main__":
     gen_qrecc_qrel(input_test_file, output_qrel_file, pid2rawpid_path)
     
 
-    bm25_file = "../../../ConvDR-main/output/qrecc/bm25/bm25_gold_oracle_train_res.trec"
+    bm25_file = "output/qrecc/bm25/bm25_gold_oracle_train_res.trec"
     orig_file = ""
     new_file = ""
     qrecc_collection_path = "/qrecc/qrecc_collection.tsv"
